@@ -3,6 +3,8 @@ package milandr.courseproject.dtos;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.util.Date;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor
 @ToString
@@ -14,7 +16,7 @@ public class MessageDto {
 
     @Getter
     @Setter
-    private String date;
+    private Date date;
 
     @Getter
     @Setter
@@ -32,7 +34,7 @@ public class MessageDto {
     @Setter
     private byte[] attached_image;
 
-    public MessageDto(Long id, String date, Long user_id, Long topic_id, String text, byte[] attached_image) {
+    public MessageDto(Long id, Date date, Long user_id, Long topic_id, String text, byte[] attached_image) {
         this.id = id;
         this.date = date;
         this.user_id = user_id;

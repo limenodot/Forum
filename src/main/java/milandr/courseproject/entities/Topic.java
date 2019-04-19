@@ -6,12 +6,15 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "GOODS")
+@Table(name = "TOPICS")
 @ToString
 public class Topic {
 
+    //todo think about first message
     @Id
     @Column(name = "ID")
     @Getter
@@ -26,8 +29,10 @@ public class Topic {
     @Setter
     private String title;
 
+    /* todo remove */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "message")
     @Column(name = "MESSAGES_ID")
     @Getter
     @Setter
-    private Long[] messages_id;
+    private List<Long> messages_id;
 }

@@ -21,11 +21,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>forum</groupId>
-            <artifactId>forum</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!-- Spring Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -99,7 +94,5 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 </project>

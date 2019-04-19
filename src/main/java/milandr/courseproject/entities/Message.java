@@ -24,17 +24,15 @@ public class Message {
     @Setter
     private String date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+    @Column(name = "USER_ID")
     @Getter
     @Setter
-    private Long user_id;
+    private Long userId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TOPIC_ID", insertable = false, updatable = false)
+    @Column(name = "TOPIC_ID")
     @Getter
     @Setter
-    private Long topic_id;
+    private Long topicId;
 
     @Column(name = "TEXT")
     @Getter
@@ -46,11 +44,23 @@ public class Message {
     @Setter
     private byte[] attached_image;
 
-    public Message(Long id, String date, Long user_id, Long topic_id, String text, byte[] attached_image) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+    @Getter
+    @Setter
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TOPIC_ID", insertable = false, updatable = false)
+    @Getter
+    @Setter
+    private Topic topic;
+
+    public Message(Long id, String date, Long userId, Long topicId, String text, byte[] attached_image) {
         this.id = id;
         this.date = date;
-        this.user_id = user_id;
-        this.topic_id = topic_id;
+        this.userId = userId;
+        this.topicId = topicId;
         this.text = text;
         this.attached_image = attached_image;
     }

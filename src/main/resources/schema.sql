@@ -19,7 +19,7 @@ CREATE SEQUENCE IF NOT EXISTS user_id_sequence START WITH 1 MINVALUE 1 INCREMENT
 COMMENT ON SEQUENCE user_id_sequence IS 'Sequence for identifiers of table ''users''';
 
 
-
+--todo date to timestamp
 CREATE TABLE IF NOT EXISTS messages (
   id BIGINT PRIMARY KEY,
   date DATE,

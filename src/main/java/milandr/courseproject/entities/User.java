@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "GOODS")
+@Table(name = "USERS")
 @ToString
 public class User {
 
@@ -47,4 +47,9 @@ public class User {
     @Getter
     @Setter
     private String passwordSalt;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user_id")
+    @Getter
+    @Setter
+    private List<Message> messages;
 }
