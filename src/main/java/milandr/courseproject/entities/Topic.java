@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class Topic {
 
-    //todo think about first message
     @Id
     @Column(name = "ID")
     @Getter

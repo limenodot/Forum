@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS topics (
 COMMENT ON TABLE topics IS 'Table contains the forum topics'' data';
 COMMENT ON COLUMN topics.id IS 'Topic''s identifier';
 COMMENT ON COLUMN topics.title IS 'Topic''s identifier';
-COMMENT ON COLUMN topics.messages_id IS 'Column contains identifiers of each message on this topic';
+COMMENT ON COLUMN topics.first_message_id IS 'Column contains identifiers of each message on this topic';
 
 CREATE SEQUENCE IF NOT EXISTS topic_id_sequence START WITH 1 MINVALUE 1 INCREMENT BY 1;
 COMMENT ON SEQUENCE topic_id_sequence IS 'Sequence for identifiers of table ''topics''';
