@@ -23,7 +23,7 @@ public class TopicService {
         TopicDto topicDto = new TopicDto();
         topicDto.setId(topic.getId());
         topicDto.setTitle(topic.getTitle());
-        topicDto.setMessages_id(topic.getMessages_id());
+        topicDto.setFirst_message_id(topic.getFirst_message_id());
 
         return topicDto;
     }

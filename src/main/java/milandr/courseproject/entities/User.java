@@ -48,8 +48,8 @@ public class User {
     @Setter
     private String passwordSalt;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user_id")
+    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "userId")
     @Getter
     @Setter
-    private List<Message> messages;
+    private List<Message> messages;*/
 }

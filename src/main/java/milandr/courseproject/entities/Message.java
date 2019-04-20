@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "GOODS")
@@ -22,7 +23,7 @@ public class Message {
     @Column(name = "DATE")
     @Getter
     @Setter
-    private String date;
+    private Date date;
 
     @Column(name = "USER_ID")
     @Getter
@@ -56,7 +57,7 @@ public class Message {
     @Setter
     private Topic topic;
 
-    public Message(Long id, String date, Long userId, Long topicId, String text, byte[] attached_image) {
+    public Message(Long id, Date date, Long userId, Long topicId, String text, byte[] attached_image) {
         this.id = id;
         this.date = date;
         this.userId = userId;

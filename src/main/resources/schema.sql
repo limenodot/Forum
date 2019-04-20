@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS users (
   name VARCHAR(100) UNIQUE NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
   avatar BYTEA,
+  firstMessage VARCHAR(1000) NOT NULL,
   password_hash VARCHAR(255),
   password_salt VARCHAR(32)
 );
@@ -17,6 +18,21 @@ COMMENT ON COLUMN users.password_salt IS 'A salt to calculate a password hash';
 
 CREATE SEQUENCE IF NOT EXISTS user_id_sequence START WITH 1 MINVALUE 1 INCREMENT BY 1;
 COMMENT ON SEQUENCE user_id_sequence IS 'Sequence for identifiers of table ''users''';
+
+
+CREATE TABLE IF NOT EXISTS topics (
+  id BIGINT PRIMARY KEY,
+  title VARCHAR(100) UNIQUE NOT NULL,
+  first_message_id BIGINT
+);
+
+COMMENT ON TABLE topics IS 'Table contains the forum topics'' data';
+COMMENT ON COLUMN topics.id IS 'Topic''s identifier';
+COMMENT ON COLUMN topics.title IS 'Topic''s identifier';
+COMMENT ON COLUMN topics.messages_id IS 'Column contains identifiers of each message on this topic';
+
+CREATE SEQUENCE IF NOT EXISTS topic_id_sequence START WITH 1 MINVALUE 1 INCREMENT BY 1;
+COMMENT ON SEQUENCE topic_id_sequence IS 'Sequence for identifiers of table ''topics''';
 
 
 --todo date to timestamp
@@ -41,17 +57,8 @@ CREATE SEQUENCE IF NOT EXISTS message_id_sequence START WITH 1 MINVALUE 1 INCREM
 COMMENT ON SEQUENCE message_id_sequence IS 'Sequence for identifiers of table ''messages''';
 
 
-
-CREATE TABLE IF NOT EXISTS topics (
-  id BIGINT PRIMARY KEY,
-  title VARCHAR(100) UNIQUE NOT NULL,
-  messages_id BIGINT[]
+CREATE TABLE IF NOT EXISTS topics_messages (
+  topic_id BIGINT REFERENCES topics (id) ON DELETE CASCADE,
+  message_id BIGINT REFERENCES messages (id) ON DELETE CASCADE,
+  CONSTRAINT topics_messages_pk PRIMARY KEY (topic_id, message_id)
 );
-
-COMMENT ON TABLE topics IS 'Table contains the forum topics'' data';
-COMMENT ON COLUMN topics.id IS 'Topic''s identifier';
-COMMENT ON COLUMN topics.title IS 'Topic''s identifier';
-COMMENT ON COLUMN topics.messages_id IS 'Column contains identifiers of each message on this topic';
-
-CREATE SEQUENCE IF NOT EXISTS topic_id_sequence START WITH 1 MINVALUE 1 INCREMENT BY 1;
-COMMENT ON SEQUENCE topic_id_sequence IS 'Sequence for identifiers of table ''topics''';

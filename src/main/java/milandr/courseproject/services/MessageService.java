@@ -23,8 +23,8 @@ public class MessageService {
         MessageDto messageDto = new MessageDto();
         messageDto.setId(message.getId());
         messageDto.setDate(message.getDate());
-        messageDto.setTopic_id(message.getTopic_id());
-        messageDto.setUser_id(message.getTopic_id());
+        messageDto.setTopic_id(message.getTopicId());
+        messageDto.setUser_id(message.getTopicId());
         messageDto.setText(message.getText());
         messageDto.setAttached_image(message.getAttached_image());
 

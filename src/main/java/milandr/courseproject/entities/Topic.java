@@ -30,9 +30,9 @@ public class Topic {
     private String title;
 
     /* todo remove */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "message")
-    @Column(name = "MESSAGES_ID")
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "message")
+    @Column(name = "FIRST_MESSAGE_ID")
     @Getter
     @Setter
-    private List<Long> messages_id;
+    private Long first_message_id;
 }

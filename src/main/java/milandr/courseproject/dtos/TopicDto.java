@@ -24,11 +24,11 @@ public class TopicDto {
 
     @Getter
     @Setter
-    private List<Long> messages_id;
+    private Long first_message_id;
 
-    public TopicDto(Long id, String title, List<Long> messages_id) {
+    public TopicDto(Long id, String title, Long first_message_id) {
         this.id = id;
         this.title = title;
-        this.messages_id = messages_id;
+        this.first_message_id = first_message_id;
     }
 }
